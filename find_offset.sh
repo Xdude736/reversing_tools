@@ -5,7 +5,13 @@
 # prog_test_path = the file path of the program to be tested
 # number_of_tests = upper limit of the loop
 
-if "$#" != 2 || "$#" != 3; then
-    echo "Usage: ./find_offset <prog_test_path> <number_of_tests>"
-    break
-fi
+for i in $(seq 1 $2)
+do
+    echo "Trying offset of $i words"
+    $1 $(python -c 'print("AAAA"*$i)')
+    if [ $? != 1 ]
+    then
+        echo "==> Correct offset to return address is $i words"
+        break
+    fi
+done
