@@ -5,6 +5,12 @@
 # prog_test_path = the file path of the program to be tested
 # number_of_tests = upper limit of the loop
 
+echo $0
+echo $1
+echo $2
+
+echo "[+] Testing..."
+
 for i in $(seq 1 $2)
 do
     echo "Trying offset of $i words"
