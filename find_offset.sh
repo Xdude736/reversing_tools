@@ -9,7 +9,7 @@ for i in $(seq 1 $2)
 do
     echo "Trying offset of $i words"
     $(python -c "print('AAAA'*${i})") | $1
-    if [ $? != 1 ]
+    if [ $? != 139 ]
     then
         echo "==> Correct offset to return address is $i words"
         break
