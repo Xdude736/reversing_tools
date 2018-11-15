@@ -5,17 +5,17 @@
 # prog_test_path = the file path of the program to be tested
 # number_of_tests = upper limit of the loop
 
-echo $0
-echo $1
-echo $2
+#echo $0
+#echo $1
+#echo $2
 
 echo "[+] Testing..."
 
 for i in $(seq 1 $2)
 do
-    #echo "Trying offset of $i words"
+    echo "Trying offset of $i words"
     #echo "$(python -c "print('AAAA' * ${i})") | $1"
-    python -c "print('AAAA' * ${i})" | ~/workspace/exploit-exercises/protostar/binaries/stack6
+    python -c "print('AAAA' * ${i})" | $1
     if [ $? == 139 ]
     then
         echo "==> Correct offset to return address is $i words"
